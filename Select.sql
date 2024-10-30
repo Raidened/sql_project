@@ -1,12 +1,4 @@
 
-/*STORY 2*/
-
-
-
-
-
-
-
 
 /*STORY 3*/
 INSERT INTO utilisateur(email, mot_de_passe, pseudo, date_heure_inscription, date_heure_d_connexion)
