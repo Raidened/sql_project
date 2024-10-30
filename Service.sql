@@ -181,7 +181,7 @@ VALUES (11, 'Ménage', "Retraité recherche une personne pour effectuer quelques
 
 
 INSERT INTO service_utilisateur(service_id,utilisateur_id,date_heure_inscription)
-VALUES(1,24,CURRENT_TIMESTAMP),
+VALUES(1,2,CURRENT_TIMESTAMP),
       (12,8,CURRENT_TIMESTAMP),
       (7,13,CURRENT_TIMESTAMP),
       (15,10,CURRENT_TIMESTAMP),
