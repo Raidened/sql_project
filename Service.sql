@@ -122,20 +122,77 @@ VALUES (1, 'Ménage', "Retraité recherche une personne pour effectuer quelques 
 
 /*STORY 6*/
 
+/*
+INSERT INTO utilisateur (
+    email, 
+    mot_de_passe, 
+    pseudo, 
+    date_inscription)
+VALUES ('test11@edu.esiee-it.fr', 'motdepasse', 'Test11', CURRENT_TIMESTAMP),
+('test12@edu.esiee-it.fr', 'motdepasse', 'Test12', CURRENT_TIMESTAMP),
+('test13@edu.esiee-it.fr', 'motdepasse', 'Test13', CURRENT_TIMESTAMP),
+('test14@edu.esiee-it.fr', 'motdepasse', 'Test14', CURRENT_TIMESTAMP),
+('test15@edu.esiee-it.fr', 'motdepasse', 'Test15', CURRENT_TIMESTAMP),
+('test16@edu.esiee-it.fr', 'motdepasse', 'Test16', CURRENT_TIMESTAMP),
+('test17@edu.esiee-it.fr', 'motdepasse', 'Test17', CURRENT_TIMESTAMP),
+('test18@edu.esiee-it.fr', 'motdepasse', 'Test18', CURRENT_TIMESTAMP),
+('test19@edu.esiee-it.fr', 'motdepasse', 'Test19', CURRENT_TIMESTAMP),
+('test20@edu.esiee-it.fr', 'motdepasse', 'Test20', CURRENT_TIMESTAMP),
+('test21@edu.esiee-it.fr', 'motdepasse', 'Test21', CURRENT_TIMESTAMP),
+('test22@edu.esiee-it.fr', 'motdepasse', 'Test22', CURRENT_TIMESTAMP),
+('test23@edu.esiee-it.fr', 'motdepasse', 'Test23', CURRENT_TIMESTAMP),
+('test24@edu.esiee-it.fr', 'motdepasse', 'Test24', CURRENT_TIMESTAMP);
+
+
+
+INSERT INTO service (utilisateur_id,nom,description,adresse,code_postal,ville,pays,date_heure_service,information_complémentaire)
+VALUES (11, 'Ménage', "Retraité recherche une personne pour effectuer quelques heures de ménage.", 
+'35 boulevard du port', 95000, 'Cergy', 'France', '2026-10-24 19:19:38', "l'école qui bouscule le code"),
+(12, 'Babysitting', 
+ "Bonjour. Nous sommes parents d'une fille de 8 ans.Nous recherchons une femme aux environs de Cergy village pour l'accompagner à l'école à 7h30 et l'a reprendre à 18 H30 jusqu'à 21 H30.Ceci 3 ou 4 fois par semaine. L'école est à 2 minutes de la maison.", 
+ 'adresse', 95000, 'Cergy', 'France', '2023-07-23 23:04:30', "plus"),
+(13, "Garde d'animaux", 
+ "Bonjour,Je cherche urgemment une personne de confiance pour garder notre chat pendant 2 semaines, du 13 au 27 août.A bientôt", 
+ 'adresse', 75011, 'Paris', 'France', '2024-10-28 16:26:42', "plus"),
+(14, 'Coach sportif', "Bonjour.Je cherche une personne entre 50 et 80 ans, propriétaire d'un petit voilier (5/6 mètres) amarré à un port sur Marseille (n'importe lequel) qui accepterait, moyennant finances, de me former régulièrement, en fin de semaine aux bases de la navigation sur son petit voilier. J'ai un permis côtier, j'ai fait plusieurs fois du dériveur et suis respectueux des personnes, des biens et suis sympathique. Mon objectif : Nouer une amitié et être  à  terme en capacité de louer ce petit voilier à cette personne (si elle est d’accord) pour des sorties en mer en parfaite autonomie.Pas sérieux s'abstenir.A bientôt.Bruno54 ans", 
+ 'adresse', 13005, 'Marseille', 'France', '2025-03-19 20:38:21', "plus"),
+(15, 'Bricolage', "Bonjour, ma demande est un peu particulière.Je fabrique des cadres personnalisés que j’envoie ensuite à des clients.La personnalisation consiste en 1 fond (à faire imprimer dans n’importe quel imprimeur du coin).Le fond est à coller sur le cadre, un miroir est à coller sur ce fond. Puis mise dans un carton et dépôt en bureau de poste.Pour le moment, je le fais moi-même, mais j’aimerais essayer de déléguer cette tache.Tous les matériaux seront déposés chez vous. L’assemblage d’un cadre prend environ 15 min et je propose 10 € à cadre. La fréquence de création est de plus ou moins de 2 à 3 cadres par semaine. Donc environ 100/120€ par mois pour une petite heure de travail par semaine sans bouger de chez vous. Je cherche quelqu’un de minutieux et fiable sur le long terme et près à prendre potentiellement en charge une plus grande quantité de cadre dans le futur proche.", 
+'adresse', 75012, 'Paris', 'France', '2024-01-17 00:44:52', "plus"),
+(16, 'Déménagement', "Bonjour Je cherche pour le 10 août 2 personnes avec camion 20m3 (si pas de camion je le louerais) les 2 appartements sont  à une rue donc pas de route et avec ascenseur et tout rentre (les 2. Articles les plus lourd machine à laver et frigo).100 euros par personne et 300 en tout si camion.",
+ 'adresse', 13005, 'Marseille', 'France', '2026-12-21 08:25:20', "plus"),
+(17, "Garde d'animaux", "Bonjour, Je cherche une pet Sitter aux alentours de notre domicile,(max 15km) pour mon chien, une journée par semaine sur une période d'au moins 3 mois.Avec expérience ou qui possède déjà un animal de compagnie. 15€/JOUR. Si vous êtes véhiculé et intéressé, vous pouvez m''envoyer un message. A bientôt;!",
+ 'adresse', 13180, 'Gignac-la-Nerthe', 'France', '2024-01-16 23:34:32', "plus"),
+(18, 'Ménage', "Bonjour, Je suis une conciergerie qui recherche des prestataires de ménage pour des remplacements. Profil recherché :- Auto- entrepreneur (obligatoire)- Disponible entre 10h00 et 17h00- Sérieux- Motivé- À l'écouteUne personne responsable et autonome. N'hésitez pas à me contacter", 
+ 'adresse', 13000, 'Marseille', 'France', '2025-04-10 01:59:01', "plus"),
+(19, 'Babysitting', "Bonjour,Nous sommes parents de deux enfants de 2 et 5 ans. Nous avons besoin d'un intervenant micro-entrepreneur d'expérience pour les garder de manière ponctuelle occasionnellement. Cette personne pourrait être sollicité certaines fin d'après-midi dans la semaine, certains soirs dans la semaine, certaines journée voire le soir également les week-ends. Il faudra probablement leur donner le goûter, leur donner ou préparer le dîner et les coucher.Merci d'avance.", 
+ 'adresse', 95000, 'Cergy', 'France', '2023-08-05 18:26:40', "plus"),
+(20, 'Bricolage', "Bonjour,J'ai 4 barres de seuil à poser, je veux du travail bien fait , surtout sur les finitions, des découpes propres et parfaites, bien poser à plat sur le sol, je ne veux pas de silicone pour camoufler les imperfections, le cache-misère, impossible pour moi.Si ca vous dit, faite le moi savoir !ha oui, chose très importante : 10€/la barre de seuil posée = 40€", 
+ 'adresse', 75018, 'Paris', 'France', '2024-09-09 15:54:25', "plus"),
+(21, "Garde d'animaux", "Bonjour, Je cherche une pet Sitter aux alentours de notre domicile,(max 15km) pour mon chien, une journée par semaine sur une période d'au moins 3 mois.Avec expérience ou qui possède déjà un animal de compagnie. 15€/JOUR. Si vous êtes véhiculé et intéressé, vous pouvez m''envoyer un message. A bientôt;!",
+ 'adresse', 13180, 'Gignac-la-Nerthe', 'France', '2024-01-16 23:34:32', "plus"),
+(22, 'Ménage', "Bonjour, Je suis une conciergerie qui recherche des prestataires de ménage pour des remplacements. Profil recherché :- Auto- entrepreneur (obligatoire)- Disponible entre 10h00 et 17h00- Sérieux- Motivé- À l'écouteUne personne responsable et autonome. N'hésitez pas à me contacter", 
+ 'adresse', 13000, 'Marseille', 'France', '2025-04-10 01:59:01', "plus"),
+(23, 'Babysitting', "Bonjour,Nous sommes parents de deux enfants de 2 et 5 ans. Nous avons besoin d'un intervenant micro-entrepreneur d'expérience pour les garder de manière ponctuelle occasionnellement. Cette personne pourrait être sollicité certaines fin d'après-midi dans la semaine, certains soirs dans la semaine, certaines journée voire le soir également les week-ends. Il faudra probablement leur donner le goûter, leur donner ou préparer le dîner et les coucher.Merci d'avance.", 
+ 'adresse', 95000, 'Cergy', 'France', '2026-08-05 18:26:40', "plus"),
+(24, 'Bricolage', "Bonjour,J'ai 4 barres de seuil à poser, je veux du travail bien fait , surtout sur les finitions, des découpes propres et parfaites, bien poser à plat sur le sol, je ne veux pas de silicone pour camoufler les imperfections, le cache-misère, impossible pour moi.Si ca vous dit, faite le moi savoir !ha oui, chose très importante : 10€/la barre de seuil posée = 40€", 
+ 'adresse', 75018, 'Paris', 'France', '2023-09-09 15:54:25', "plus");
+
+*/
+
 
 INSERT INTO service_utilisateur(service_id,utilisateur_id,date_heure_inscription)
-VALUES(1,2,CURRENT_TIMESTAMP),
-      (6,5,CURRENT_TIMESTAMP),
-      (7,10,CURRENT_TIMESTAMP),
-      (4,9,CURRENT_TIMESTAMP),
-      (5,6,CURRENT_TIMESTAMP),
-      (6,8,CURRENT_TIMESTAMP),
-      (7,3,CURRENT_TIMESTAMP),
-      (8,4,CURRENT_TIMESTAMP),
-      (9,10,CURRENT_TIMESTAMP),
-      (10,5,CURRENT_TIMESTAMP),
-      (6,3,CURRENT_TIMESTAMP),
-      (10,1,CURRENT_TIMESTAMP);
+VALUES(1,24,CURRENT_TIMESTAMP),
+      (12,8,CURRENT_TIMESTAMP),
+      (7,13,CURRENT_TIMESTAMP),
+      (15,10,CURRENT_TIMESTAMP),
+      (10,20,CURRENT_TIMESTAMP),
+      (22,16,CURRENT_TIMESTAMP),
+      (11,22,CURRENT_TIMESTAMP),
+      (24,23,CURRENT_TIMESTAMP),
+      (20,4,CURRENT_TIMESTAMP),
+      (21,14,CURRENT_TIMESTAMP),
+      (14,21,CURRENT_TIMESTAMP),
+      (4,9,CURRENT_TIMESTAMP);
 
 
 
@@ -185,9 +242,10 @@ ORDER BY date_heure_envoi ASC;
 
 /*STORY 9*/
 
-
-
-
+SELECT *
+FROM message
+WHERE expediteur_id = 1 AND receveur_id = 2 OR expediteur_id = 2 AND receveur_id = 1
+ORDER BY date_heure_envoi DESC;
 
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -196,38 +254,6 @@ ORDER BY date_heure_envoi ASC;
 
 
 
-
-INSERT INTO service (utilisateur_id,nom,description,adresse,code_postal,ville,pays,date_heure_service,information_complémentaire)
-VALUES (1, 'Ménage', "Retraité recherche une personne pour effectuer quelques heures de ménage.", 
-'35 boulevard du port', 95000, 'Cergy', 'France', '2026-10-24 19:19:38', "l'école qui bouscule le code"),
-(2, 'Babysitting', 
- "Bonjour. Nous sommes parents d'une fille de 8 ans.Nous recherchons une femme aux environs de Cergy village pour l'accompagner à l'école à 7h30 et l'a reprendre à 18 H30 jusqu'à 21 H30.Ceci 3 ou 4 fois par semaine. L'école est à 2 minutes de la maison.", 
- 'adresse', 95000, 'Cergy', 'France', '2023-07-23 23:04:30', "plus"),
-(3, "Garde d'animaux", 
- "Bonjour,Je cherche urgemment une personne de confiance pour garder notre chat pendant 2 semaines, du 13 au 27 août.A bientôt", 
- 'adresse', 75011, 'Paris', 'France', '2024-10-28 16:26:42', "plus"),
-(4, 'Coach sportif', "Bonjour.Je cherche une personne entre 50 et 80 ans, propriétaire d'un petit voilier (5/6 mètres) amarré à un port sur Marseille (n'importe lequel) qui accepterait, moyennant finances, de me former régulièrement, en fin de semaine aux bases de la navigation sur son petit voilier. J'ai un permis côtier, j'ai fait plusieurs fois du dériveur et suis respectueux des personnes, des biens et suis sympathique. Mon objectif : Nouer une amitié et être  à  terme en capacité de louer ce petit voilier à cette personne (si elle est d’accord) pour des sorties en mer en parfaite autonomie.Pas sérieux s'abstenir.A bientôt.Bruno54 ans", 
- 'adresse', 13005, 'Marseille', 'France', '2025-03-19 20:38:21', "plus"),
-(5, 'Bricolage', "Bonjour, ma demande est un peu particulière.Je fabrique des cadres personnalisés que j’envoie ensuite à des clients.La personnalisation consiste en 1 fond (à faire imprimer dans n’importe quel imprimeur du coin).Le fond est à coller sur le cadre, un miroir est à coller sur ce fond. Puis mise dans un carton et dépôt en bureau de poste.Pour le moment, je le fais moi-même, mais j’aimerais essayer de déléguer cette tache.Tous les matériaux seront déposés chez vous. L’assemblage d’un cadre prend environ 15 min et je propose 10 € à cadre. La fréquence de création est de plus ou moins de 2 à 3 cadres par semaine. Donc environ 100/120€ par mois pour une petite heure de travail par semaine sans bouger de chez vous. Je cherche quelqu’un de minutieux et fiable sur le long terme et près à prendre potentiellement en charge une plus grande quantité de cadre dans le futur proche.", 
-'adresse', 75012, 'Paris', 'France', '2023-01-17 00:44:52', "plus"),
-(6, 'Déménagement', "Bonjour Je cherche pour le 10 août 2 personnes avec camion 20m3 (si pas de camion je le louerais) les 2 appartements sont  à une rue donc pas de route et avec ascenseur et tout rentre (les 2. Articles les plus lourd machine à laver et frigo).100 euros par personne et 300 en tout si camion.",
- 'adresse', 13005, 'Marseille', 'France', '2026-12-21 08:25:20', "plus"),
-(7, "Garde d'animaux", "Bonjour, Je cherche une pet Sitter aux alentours de notre domicile,(max 15km) pour mon chien, une journée par semaine sur une période d'au moins 3 mois.Avec expérience ou qui possède déjà un animal de compagnie. 15€/JOUR. Si vous êtes véhiculé et intéressé, vous pouvez m''envoyer un message. A bientôt;!",
- 'adresse', 13180, 'Gignac-la-Nerthe', 'France', '2024-01-16 23:34:32', "plus"),
-(8, 'Ménage', "Bonjour, Je suis une conciergerie qui recherche des prestataires de ménage pour des remplacements. Profil recherché :- Auto- entrepreneur (obligatoire)- Disponible entre 10h00 et 17h00- Sérieux- Motivé- À l'écouteUne personne responsable et autonome. N'hésitez pas à me contacter", 
- 'adresse', 13000, 'Marseille', 'France', '2025-04-10 01:59:01', "plus"),
-(9, 'Babysitting', "Bonjour,Nous sommes parents de deux enfants de 2 et 5 ans. Nous avons besoin d'un intervenant micro-entrepreneur d'expérience pour les garder de manière ponctuelle occasionnellement. Cette personne pourrait être sollicité certaines fin d'après-midi dans la semaine, certains soirs dans la semaine, certaines journée voire le soir également les week-ends. Il faudra probablement leur donner le goûter, leur donner ou préparer le dîner et les coucher.Merci d'avance.", 
- 'adresse', 95000, 'Cergy', 'France', '2024-08-05 18:26:40', "plus"),
-(10, 'Bricolage', "Bonjour,J'ai 4 barres de seuil à poser, je veux du travail bien fait , surtout sur les finitions, des découpes propres et parfaites, bien poser à plat sur le sol, je ne veux pas de silicone pour camoufler les imperfections, le cache-misère, impossible pour moi.Si ca vous dit, faite le moi savoir !ha oui, chose très importante : 10€/la barre de seuil posée = 40€", 
- 'adresse', 75018, 'Paris', 'France', '2026-09-09 15:54:25', "plus"),
-(7, "Garde d'animaux", "Bonjour, Je cherche une pet Sitter aux alentours de notre domicile,(max 15km) pour mon chien, une journée par semaine sur une période d'au moins 3 mois.Avec expérience ou qui possède déjà un animal de compagnie. 15€/JOUR. Si vous êtes véhiculé et intéressé, vous pouvez m''envoyer un message. A bientôt;!",
- 'adresse', 13180, 'Gignac-la-Nerthe', 'France', '2024-01-16 23:34:32', "plus"),
-(8, 'Ménage', "Bonjour, Je suis une conciergerie qui recherche des prestataires de ménage pour des remplacements. Profil recherché :- Auto- entrepreneur (obligatoire)- Disponible entre 10h00 et 17h00- Sérieux- Motivé- À l'écouteUne personne responsable et autonome. N'hésitez pas à me contacter", 
- 'adresse', 13000, 'Marseille', 'France', '2025-04-10 01:59:01', "plus"),
-(9, 'Babysitting', "Bonjour,Nous sommes parents de deux enfants de 2 et 5 ans. Nous avons besoin d'un intervenant micro-entrepreneur d'expérience pour les garder de manière ponctuelle occasionnellement. Cette personne pourrait être sollicité certaines fin d'après-midi dans la semaine, certains soirs dans la semaine, certaines journée voire le soir également les week-ends. Il faudra probablement leur donner le goûter, leur donner ou préparer le dîner et les coucher.Merci d'avance.", 
- 'adresse', 95000, 'Cergy', 'France', '2024-08-05 18:26:40', "plus"),
-(10, 'Bricolage', "Bonjour,J'ai 4 barres de seuil à poser, je veux du travail bien fait , surtout sur les finitions, des découpes propres et parfaites, bien poser à plat sur le sol, je ne veux pas de silicone pour camoufler les imperfections, le cache-misère, impossible pour moi.Si ca vous dit, faite le moi savoir !ha oui, chose très importante : 10€/la barre de seuil posée = 40€", 
- 'adresse', 75018, 'Paris', 'France', '2026-09-09 15:54:25', "plus");
 
 
 
