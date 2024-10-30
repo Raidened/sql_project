@@ -65,7 +65,7 @@ INSERT INTO utilisateur (
     pseudo, 
     date_inscription)
 VALUES ('draxan.launay-tran@edu.esiee-it.fr', 'motdepasse', 'DraxanLT', CURRENT_TIMESTAMP),
-('test1@edu.esiee-it.fr', 'motdepasse', 'Test1', CURRENT_TIMESTAMP),
+('test1@edu.esiee-it.fr', 'motdepasse', 'Martial P', CURRENT_TIMESTAMP),
 ('test2@edu.esiee-it.fr', 'motdepasse', 'Test2', CURRENT_TIMESTAMP),
 ('test3@edu.esiee-it.fr', 'motdepasse', 'Test3', CURRENT_TIMESTAMP),
 ('test4@edu.esiee-it.fr', 'motdepasse', 'Test4', CURRENT_TIMESTAMP),
@@ -83,9 +83,9 @@ VALUES ('draxan.launay-tran@edu.esiee-it.fr', 'motdepasse', 'DraxanLT', CURRENT_
 
 
 
-
-
-
+UPDATE utilisateur
+SET adresse_postal = '',code_postal = '', ville ='',pays ='',telephone_portable='',telephone_fixe = ''
+WHERE id =  /*ID JOUEUR*/ ;
 
 
 
@@ -96,7 +96,7 @@ VALUES ('draxan.launay-tran@edu.esiee-it.fr', 'motdepasse', 'DraxanLT', CURRENT_
 
 INSERT INTO service (utilisateur_id,nom,description,adresse,code_postal,ville,pays,date_heure_service,information_complémentaire)
 VALUES (1, 'Coding Factory', 'Nous sommes une école de développement web et de cybersécurité permettant à nos étudiants de découvrir le monde du web.', '35 boulevard du port', 95000, 'Cergy', 'France', CURRENT_TIMESTAMP, "l'école qui bouscule le code"),
-(2, 'TEST1', 'description1', 'adresse', 95000, 'loca', 'pays', CURRENT_TIMESTAMP, "plus"),
+(2, 'Babysitting', "Bonjour. Nous sommes parents d'une fille de 8 ans.Nous recherchons une femme aux environs de Cergy village pour l'accompagner à l'école à 7h30 et l'a reprendre à 18 H30 jusqu'à 21 H30.Ceci 3 ou 4 fois par semaine. L'école est à 2 minutes de la maison.", 'adresse', 95000, 'loca', 'pays', CURRENT_TIMESTAMP, "plus"),
 (3, 'TEST2', 'description2', 'adresse', 95000, 'loca', 'pays', CURRENT_TIMESTAMP, "plus"),
 (4, 'TEST3', 'description3', 'adresse', 95000, 'loca', 'pays', CURRENT_TIMESTAMP, "plus"),
 (5, 'TEST4', 'description4', 'adresse', 95000, 'loca', 'pays', CURRENT_TIMESTAMP, "plus"),
@@ -159,3 +159,32 @@ VALUES (1, 'Coding Factory', 'Nous sommes une école de développement web et de
 
 
 
+
+
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*STORY 12*/
+
+MATEIS
+
+DELETE FROM service
+WHERE id = 1;
+
+DELETE FROM service_utilisateur
+WHERE service_id =1;
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*STORY 11*/
