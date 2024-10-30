@@ -19,14 +19,14 @@ VALUES ("jsp@gmail.com", SHA2("Salaaa", 256),"je sais pas", '2024-10-28 22:05:58
 
 UPDATE utilisateur
 SET mot_de_passe = SHA2('New mdp', 256)
-WHERE id = utilisateur.id = 1 
+WHERE id =  1 
   AND mot_de_passe = SHA2('Last mdp', 256);
 
   /*UPDATE Email */
 
 UPDATE utilisateur
 SET email = '#Input New email'
-WHERE id = utilisateur.id = 1 
+WHERE id =  1 
   AND mot_de_passe = SHA2('#Input MDP', 256)
   AND email = '#Input Last email';
 
@@ -34,7 +34,7 @@ WHERE id = utilisateur.id = 1
 
 UPDATE utilisateur
 SET bio = ('New mdp')
-WHERE id = utilisateur.id = 1 
+WHERE id =  1 
 
 -------
 
@@ -44,16 +44,15 @@ WHERE id = utilisateur.id = 1
 SELECT 
     CASE 
         WHEN email = '#Input email' 
-             AND
-
-
-
+             AND mot_de_passe = SHA2('#Input MDP', 256) 
+             THEN 'Connexion réussie'
+        ELSE 'Connexion échouée'
+    END AS  statut_connexion,utilisateur.id,utilisateur.pseudo,email
+FROM utilisateur;
 
 /*STORY 6*/
 INSERT INTO jeu(nom)
 VALUES ('Booo Of Memory');
-
-
 
 
 
@@ -76,7 +75,7 @@ JOIN jeu ON score.jeu_id = jeu.id
 JOIN utilisateur ON score.joueur_id = utilisateur.id 
 JOIN difficulte ON score.difficulte = difficulte.id
 WHERE jeu.nom = 'Booo Of Memory'
-ORDER BY jeu.nom, difficulte.id DESC, score.score_partie DESC;/*essai1*/
+ORDER BY jeu.nom, difficulte.id DESC, score.score_partie DESC;
 
 SELECT jeu.nom AS 'JEU', utilisateur.pseudo AS 'PSEUDO', difficulte.nom AS 'DIFFICULTE', score.score_partie AS 'SCORE'
 FROM score
@@ -84,7 +83,7 @@ JOIN jeu ON score.jeu_id = jeu.id
 JOIN utilisateur ON score.joueur_id = utilisateur.id 
 JOIN difficulte ON score.difficulte = difficulte.id
 WHERE utilisateur.pseudo = 'DraxanLT'
-ORDER BY jeu.nom, difficulte.id DESC, score.score_partie DESC;/*essai2*/
+ORDER BY jeu.nom, difficulte.id DESC, score.score_partie DESC;
 
 SELECT jeu.nom AS 'JEU', utilisateur.pseudo AS 'PSEUDO', difficulte.nom AS 'DIFFICULTE', score.score_partie AS 'SCORE'
 FROM score
@@ -92,7 +91,7 @@ JOIN jeu ON score.jeu_id = jeu.id
 JOIN utilisateur ON score.joueur_id = utilisateur.id 
 JOIN difficulte ON score.difficulte = difficulte.id
 WHERE difficulte.nom = 'Intermédiaire'
-ORDER BY jeu.nom, difficulte.id DESC, score.score_partie DESC;/*essai3*/
+ORDER BY jeu.nom, difficulte.id DESC, score.score_partie DESC;
 
 
 
@@ -124,11 +123,6 @@ LIMIT 1;
 
 
 
- mot_de_passe = SHA2('#Input MDP', 256) 
-             THEN 'Connexion réussie'
-        ELSE 'Connexion échouée'
-    END AS  statut_connexion,utilisateur.id,utilisateur.pseudo,email
-FROM utilisateur;
 
 
 
@@ -158,10 +152,10 @@ ORDER BY
 
 /*STORY 12 */ ---------------------------------
 
-SELECT utilisateur.id, score.joueur_id, utilisateur.pseudo, score.score_partie, score.jeu_id, score.difficulte ,score.date_heure_partie, score.ancien_score
+SELECT utilisateur.id, score.joueur_id, utilisateur.pseudo, score.score_partie, score.jeu_id, score.difficulte ,score.date_heure_partie
 FROM score
 JOIN utilisateur ON score.joueur_id = utilisateur.id
-WHERE utilisateur.pseudo LIKE '%a%'
+WHERE utilisateur.pseudo LIKE '%DraxanLT%'
 ORDER BY score.date_heure_partie;
 
 /*STORY 13 */ ---------------------------------
@@ -250,7 +244,11 @@ SELECT
      ORDER BY COUNT(*) DESC
      LIMIT 1) AS jeu_favori_destinataire
 FROM message_prive mp
-JOIN utilisateur exp ON mp.
+JOIN utilisateur exp ON mp.p_joueur_id = exp.id
+JOIN utilisateur dest ON mp.s_joueur_id = dest.id
+WHERE (mp.p_joueur_id = 1 AND mp.s_joueur_id = 2) -- Exemple avec les utilisateurs 1 et 2
+   OR (mp.p_joueur_id = 2 AND mp.s_joueur_id = 1)
+ORDER BY mp.date_heure_envoie ASC;
 
 -------
 
