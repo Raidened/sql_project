@@ -252,16 +252,11 @@ ORDER BY date_heure_envoi DESC;
 /*STORY 10*/
 
 
-
-
-
-
-
-
-
-
-
-
+SELECT service.id, service.nom AS NOM_DU_SERVICE, service.code_postal, service.ville, service.pays, service.date_heure_service
+FROM service
+LEFT JOIN service_utilisateur ON service.utilisateur_id = service_utilisateur.service_id
+WHERE service_utilisateur.service_id is NULL AND service.date_heure_service >= CURRENT_TIMESTAMP
+ORDER BY service.date_heure_service ASC, service.ville ASC
 
 
 
@@ -271,10 +266,19 @@ ORDER BY date_heure_envoi DESC;
 /*STORY 11*/
 
 
-
-
-
-
+SELECT utilisateur.pseudo, utilisateur.telephone_portable, utilisateur.telephone_fixe,
+    CASE
+        WHEN service_utilisateur.utilisateur_id = NULL THEN '' 
+    ELSE
+    	(SELECT utilisateur.pseudo 
+         FROM utilisateur 
+         JOIN service_utilisateur ON utilisateur.id = service_utilisateur.utilisateur_id
+         WHERE service_utilisateur.service_id = 1)
+    END AS UTILISATEUR_INSCRIT
+FROM service
+JOIN utilisateur ON service.utilisateur_id = utilisateur.id
+JOIN service_utilisateur ON service.utilisateur_id = service_utilisateur.service_id
+WHERE service.id = 1
 
 
 
